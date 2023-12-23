@@ -13,7 +13,9 @@ import services.NhanVien_Services;
  * @author Admin
  */
 public class DangNhap_JDiaLog extends javax.swing.JDialog {
+
     NhanVien_Services ql = new NhanVien_Services();
+
     /**
      * Creates new form DangNhap_JDiaLog
      */
@@ -27,15 +29,6 @@ public class DangNhap_JDiaLog extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
-    
-
-    
-
-    
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -134,34 +127,33 @@ public class DangNhap_JDiaLog extends javax.swing.JDialog {
 
     private void txtTenDNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenDNActionPerformed
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_txtTenDNActionPerformed
 
     private void btnKetThucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKetThucActionPerformed
         int hoi = JOptionPane.showConfirmDialog(this, "Bạn có chắc muốn kết thúc?");
-        if(hoi==JOptionPane.YES_OPTION){
+        if (hoi == JOptionPane.YES_OPTION) {
             System.exit(0);
-        }
-        else{
+        } else {
             return;
         }
     }//GEN-LAST:event_btnKetThucActionPerformed
 
     private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
         // TODO add your handling code here:
-         String ten = txtTenDN.getText();
+        String ten = txtTenDN.getText();
         String pass = txtMatKhau.getText();
-        if(ten.equals("")){
+        if (ten.equals("")) {
             JOptionPane.showMessageDialog(this, "Chưa nhập tên tài khoản");
             return;
         }
-        if(pass.equals("")){
+        if (pass.equals("")) {
             JOptionPane.showMessageDialog(this, "Chưa nhập mật khẩu");
             return;
         }
         NhanVien nv = ql.getTheoMa(ten);
-        if(nv!=null){
-            if(!nv.getMatKhau().equals(pass)){
+        if (nv != null) {
+            if (!nv.getMatKhau().equals(pass)) {
                 JOptionPane.showMessageDialog(this, "Mật khẩu không đúng");
                 return;
             }
@@ -169,7 +161,7 @@ public class DangNhap_JDiaLog extends javax.swing.JDialog {
             this.dispose();
             EduSys_JFrame chinh = new EduSys_JFrame();
             chinh.setVisible(true);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Mã nhân viên không đúng");
             return;
         }
